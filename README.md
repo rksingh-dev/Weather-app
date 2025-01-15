@@ -1,1 +1,1 @@
-https://rksingh272003.github.io/Weather-app/
+https://rksingh-dev.github.io/Weather-app/
