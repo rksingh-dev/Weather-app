@@ -1,0 +1,74 @@
+/* Weather-specific backgrounds */
+body.clear-sky {
+    background: url('https://images.unsplash.com/photo-1601297183305-6df142704ea2?auto=format&fit=crop&w=2080&q=80') center/cover no-repeat fixed;
+}
+
+body.clouds {
+    background: url('https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&fit=crop&w=2080&q=80') center/cover no-repeat fixed;
+}
+
+body.rain {
+    background: url('https://images.unsplash.com/photo-1519692933481-e162a57d6721?auto=format&fit=crop&w=2080&q=80') center/cover no-repeat fixed;
+}
+
+body.thunderstorm {
+    background: url('https://images.unsplash.com/photo-1605727216801-e27ce1d0cc28?auto=format&fit=crop&w=2080&q=80') center/cover no-repeat fixed;
+}
+
+body.snow {
+    background: url('https://images.unsplash.com/photo-1491002052546-bf38f186af56?auto=format&fit=crop&w=2080&q=80') center/cover no-repeat fixed;
+}
+
+body.mist {
+    background: url('https://images.unsplash.com/photo-1543968996-ee822b8176ba?auto=format&fit=crop&w=2080&q=80') center/cover no-repeat fixed;
+}
+
+/* Night versions */
+body.clear-sky.night {
+    background: url('https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?auto=format&fit=crop&w=2080&q=80') center/cover no-repeat fixed;
+}
+
+body.clouds.night {
+    background: url('https://images.unsplash.com/photo-1505322022379-7c3353ee6291?auto=format&fit=crop&w=2080&q=80') center/cover no-repeat fixed;
+}
+
+/* Gradient overlays for different weather conditions */
+body.clear-sky::before {
+    background: linear-gradient(135deg,
+        rgba(30, 30, 46, 0.8) 0%,
+        rgba(45, 43, 66, 0.75) 50%,
+        rgba(30, 30, 46, 0.8) 100%
+    );
+}
+
+body.rain::before {
+    background: linear-gradient(135deg,
+        rgba(28, 36, 46, 0.9) 0%,
+        rgba(35, 43, 56, 0.85) 50%,
+        rgba(28, 36, 46, 0.9) 100%
+    );
+}
+
+body.thunderstorm::before {
+    background: linear-gradient(135deg,
+        rgba(25, 25, 35, 0.92) 0%,
+        rgba(35, 35, 45, 0.88) 50%,
+        rgba(25, 25, 35, 0.92) 100%
+    );
+}
+
+body.snow::before {
+    background: linear-gradient(135deg,
+        rgba(35, 35, 45, 0.85) 0%,
+        rgba(45, 45, 55, 0.8) 50%,
+        rgba(35, 35, 45, 0.85) 100%
+    );
+}
+
+body.mist::before {
+    background: linear-gradient(135deg,
+        rgba(32, 32, 42, 0.92) 0%,
+        rgba(42, 42, 52, 0.88) 50%,
+        rgba(32, 32, 42, 0.92) 100%
+    );
+} 
