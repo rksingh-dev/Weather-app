@@ -1,88 +1,179 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;600&family=Roboto:wght@300;400;500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="weather-backgrounds.css" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="weather-backgrounds.css">
-</head>
-
-<body class="clouds">
-    <div class="container">
-        <div class="glass-card">
-            <div class="search-container">
-                <i class="fas fa-location-dot location-icon"></i>
-                <input type="text" id="city-input" placeholder="Search for city...">
-                <button id="search-btn">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-
-            <div class="weather-info">
-                <div class="main-info">
-                    <div class="location-info">
-                        <h2 id="city-name" class="city-title">Jaipur</h2>
-                        <p id="current-time" class="date-time"></p>
-                    </div>
-                    <div class="temp-container">
-                        <div class="temperature" id="temperature">297.77°</div>
-                        <div class="temp-description">
-                            <i class="fas fa-sun weather-icon"></i>
-                            <p id="description" class="weather-desc">Clear Sky</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="weather-details">
-                    <div class="detail-item">
-                        <i class="fas fa-tint"></i>
-                        <div class="detail-info">
-                            <span class="label">Humidity</span>
-                            <span id="humidity" class="value">65%</span>
-                        </div>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-wind"></i>
-                        <div class="detail-info">
-                            <span class="label">Wind Speed</span>
-                            <span id="wind-speed" class="value">5.2 km/h</span>
-                        </div>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-compress-alt"></i>
-                        <div class="detail-info">
-                            <span class="label">Pressure</span>
-                            <span id="pressure" class="value">1013 hPa</span>
-                        </div>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-eye"></i>
-                        <div class="detail-info">
-                            <span class="label">Visibility</span>
-                            <span id="visibility" class="value">10 km</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <body>
+    <!-- Loading indicator -->
+    <div class="loading" id="loading">
+      <div class="loading-spinner"></div>
     </div>
+
+    <div class="app">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-content">
+          <h1 class="app-title">Weather</h1>
+          <div class="header-actions">
+            <button
+              class="icon-btn"
+              id="unit-toggle"
+              title="Toggle temperature unit"
+            >
+              <span class="unit-text">°C</span>
+            </button>
+            <button
+              class="icon-btn"
+              id="location-btn"
+              title="Use current location"
+            >
+              <span class="material-icons">my_location</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Search -->
+      <div class="search-container">
+        <div class="search-box">
+          <span class="material-icons search-icon">search</span>
+          <input
+            type="text"
+            id="city-input"
+            class="search-input"
+            placeholder="Search for a city"
+          />
+          <button class="icon-btn clear-btn" id="clear-btn">
+            <span class="material-icons">close</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main content -->
+      <main class="main-content">
+        <!-- Current weather -->
+        <div class="current-weather">
+          <div class="location">
+            <h2 class="city-name" id="city-name">New York</h2>
+            <p class="country" id="country">United States</p>
+            <p class="date-time" id="date-time">Friday, 11:45 PM</p>
+          </div>
+
+          <div class="weather-main">
+            <div class="temperature-container">
+              <span class="temperature" id="temperature">22</span>
+              <span class="temperature-unit">°</span>
+            </div>
+            <div class="weather-info">
+              <div class="weather-icon" id="weather-icon">
+                <span class="material-icons">wb_sunny</span>
+              </div>
+              <div class="weather-details">
+                <p class="weather-description" id="description">Clear</p>
+                <p class="feels-like">
+                  Feels like <span id="feels-like">25°</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Weather metrics -->
+        <div class="metrics-container">
+          <div class="metric-card">
+            <span class="material-icons metric-icon">water_drop</span>
+            <div class="metric-content">
+              <span class="metric-label">Humidity</span>
+              <span class="metric-value" id="humidity">65%</span>
+            </div>
+          </div>
+          <div class="metric-card">
+            <span class="material-icons metric-icon">air</span>
+            <div class="metric-content">
+              <span class="metric-label">Wind</span>
+              <span class="metric-value" id="wind-speed">12 km/h</span>
+            </div>
+          </div>
+          <div class="metric-card">
+            <span class="material-icons metric-icon">compress</span>
+            <div class="metric-content">
+              <span class="metric-label">Pressure</span>
+              <span class="metric-value" id="pressure">1013 hPa</span>
+            </div>
+          </div>
+          <div class="metric-card">
+            <span class="material-icons metric-icon">visibility</span>
+            <div class="metric-content">
+              <span class="metric-label">Visibility</span>
+              <span class="metric-value" id="visibility">10 km</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hourly forecast -->
+        <div class="forecast-section">
+          <h3 class="section-title">Hourly forecast</h3>
+          <div class="hourly-forecast" id="hourly-forecast">
+            <!-- Hourly items will be populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Weekly forecast -->
+        <div class="forecast-section">
+          <h3 class="section-title">10-day forecast</h3>
+          <div class="weekly-forecast" id="weekly-forecast">
+            <!-- Weekly items will be populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Additional info -->
+        <div class="additional-info">
+          <div class="info-card">
+            <h4 class="card-title">Sunrise & Sunset</h4>
+            <div class="sun-times">
+              <div class="sun-time">
+                <span class="material-icons">wb_sunny</span>
+                <span class="time-value" id="sunrise">6:30 AM</span>
+              </div>
+              <div class="sun-time">
+                <span class="material-icons">brightness_3</span>
+                <span class="time-value" id="sunset">7:45 PM</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h4 class="card-title">Air Quality</h4>
+            <div class="air-quality">
+              <div class="aqi-main">
+                <span class="aqi-value" id="aqi-value">42</span>
+                <span class="aqi-label" id="aqi-label">Good</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Error toast -->
+    <div class="toast error-toast" id="error-toast">
+      <span class="material-icons">error</span>
+      <span class="toast-message" id="error-message">Something went wrong</span>
+    </div>
+
     <script src="script.js"></script>
-    <script>
-        function updateTime() {
-            const timeElement = document.getElementById('current-time');
-            const now = new Date();
-            const options = { weekday: 'long', hour: '2-digit', minute: '2-digit', hour12: false };
-            timeElement.textContent = now.toLocaleString('en-US', options);
-        }
-
-        // Update time immediately and then every minute
-        updateTime();
-        setInterval(updateTime, 60000);
-    </script>
-</body>
-
+  </body>
 </html>
